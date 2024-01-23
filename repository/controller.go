@@ -50,7 +50,7 @@ func (r *Repository) GetTasks(context *fiber.Ctx) error {
 }
 
 func (r *Repository) GetTaskByID(context *fiber.Ctx) error {
-	taskModel := migrations.Tasks{}
+	taskModel := &migrations.Tasks{}
 	id := context.Params("id")
 	// usual error checking if id is empty
 	if id == "" {
@@ -65,7 +65,7 @@ func (r *Repository) GetTaskByID(context *fiber.Ctx) error {
 		return err
 	}
 
-	context.Status(http.StatusOK).JSON(&fiber.Map{"status": "success", "message": "task has been fetched successfully"})
+	context.Status(http.StatusOK).JSON(&fiber.Map{"status": "success", "message": "task has been fetched successfully", "data": taskModel})
 	return nil
 }
 
