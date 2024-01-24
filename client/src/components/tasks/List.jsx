@@ -34,7 +34,7 @@ export default function List() {
                 <div className="p-10">
                     <div className="mb-10 flex items-center justify-between">
                         <h1 className="font-bold">Task Manager App</h1>
-                        <button className="bg-blue-700 text-white px-3 py-1.5 rounded"></button>
+                        <button className="bg-blue-700 text-white px-3 py-1.5 rounded">Add Task</button>
                     </div>
                     <div>
                         {tasks.length > 0 ? tasks.map((task, key) => <EachTask key={key} task={task} fetchData={fetchData}/>) : ""}
