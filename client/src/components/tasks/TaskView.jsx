@@ -34,7 +34,11 @@ export default function TaskView() {
                     <div className="lg:w-1/3 w-full">
                         <div className="p-10">
                             <div className="mb-10 flex items-center justify-between">
-                                <Link to="/"><h1 className="font-bold">Go back</h1></Link>
+                                <Link to="/">
+                                    <button className="bg-blue-700 text-white px-3 py-1.5 rounded">
+                                        Go Back
+                                    </button>
+                                </Link>
                             </div>
                             <div className="bg-slate-100 rounded-lg px-5">
                                 <div className="flex border-b py-4">

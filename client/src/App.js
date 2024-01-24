@@ -8,7 +8,7 @@ function App() {
    <Router>
      <Routes>
        <Route index element={<TaskList />} />
-       <Route path="/profile/:id" element={<TaskView />} />
+       <Route path="/taskprofile/:id" element={<TaskView />} />
      </Routes>
    </Router>
   );

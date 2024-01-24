@@ -50,13 +50,14 @@ export default function TaskList() {
     }
 
     let myPage = searchParams.get("page") ? searchParams.get("page") : 0;
+    console.log('mypage:', myPage)
     return (
         <div className="">
             <div className="flex justify-center">
                 <div className="lg:w-1/3 w-full">
                     <div className="p-10">
                         <div className="mb-10 flex items-center justify-between">
-                            <h1 className="font-bold">CRUD App</h1>
+                            <h1 className="font-bold">Jabez Task Manager</h1>
                             <button className="bg-blue-700 text-white px-3 py-1.5 rounded" onClick={openModal}>Add Task</button>
                         </div>
                         <div className="">
@@ -65,7 +66,7 @@ export default function TaskList() {
 
                         <div className="mt-10">
                             {Array.from({ length: pages }, (_, index) => index + 1).map((pg, key) =>
-                                <Link className={`border px-3 py-1 mr-3 ${myPage === key ? 'bg-blue-600 text-blue-100' : ''}`} to={`?page=${key}`} key={key}>{key + 1}</Link>)}
+                                <Link className={`border px-3 py-1 mr-3 ${myPage == key ? 'bg-blue-600 text-blue-100' : ''}`} to={`?page=${key}`} key={key}>{key + 1}</Link>)}
                         </div>
 
                         {/* Start modal */}

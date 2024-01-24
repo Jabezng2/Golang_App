@@ -10,7 +10,6 @@ export default function TaskCard({task, fetchData}) {
     const [dateValue, setDateValue] = useState(moment(task.date).format('YYYY-MM-DD'));
     const [priorityValue, setPriorityValue] = useState(task.priority)
     const [statusValue, setStatusValue] = useState(task.status)
-    console.log(task)
 
     const openModal = () => {
         document.getElementById('new-modal-' + task.id).classList.remove("hidden")
@@ -29,7 +28,6 @@ export default function TaskCard({task, fetchData}) {
         e.preventDefault()
         var form = document.getElementById(`editform-${task.id}`);
         var formData = new FormData(form);
-        console.log(task.id)
         axios.patch(`${API_URL}/tasks/${task.id}`, formData)
             .then(res => completeForm())
             .catch(error => console.log(error.response))
@@ -42,15 +40,15 @@ export default function TaskCard({task, fetchData}) {
     }
 
     return (
-        <div className="bg-slate-100 rounded-lg mb-4 p-4 hover:border hover:border-purple-700">
+        <div className="bg-slate-100 rounded-lg mb-4 p-4 hover:border hover:border-black hover:border-2">
             <div>
                 <div>
                     <div className="font-medium">{task.name}</div>
                     <div className="text-slate-400">{task.description}</div>
                 </div>
                 <div className="text-sm flex space-x-4 mt-4">
-                    <Link to={`/profile/${task.id}`}>View Profile</Link>
-                    <button onClick={openModal}>Edit</button>
+                    <Link to={`/taskprofile/${task.id}`}>View</Link>
+                    <button onClick={openModal} className="text-blue-600">Edit</button>
                     <button onClick={deleteTask} className="text-red-600">Delete</button>
                 </div>
             </div>
