@@ -1,14 +1,14 @@
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import ViewTask from "./components/tasks/ViewTask";
-import List from "./components/tasks/List";
+import TaskView from "./components/tasks/TaskView";
+import TaskList from "./components/tasks/TaskList";
 
 function App() {
   return (
    <Router>
      <Routes>
-       <Route index element={<List />} />
-       <Route path="/profile/:id" element={<ViewTask />} />
+       <Route index element={<TaskList />} />
+       <Route path="/profile/:id" element={<TaskView />} />
      </Routes>
    </Router>
   );

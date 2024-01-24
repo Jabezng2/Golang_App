@@ -5,6 +5,7 @@ import (
 )
 
 func (repo *Repository) SetupRoutes(app *fiber.App) {
+	app.Static("/", "./client/public")
 	api := app.Group("/api")
 
 	// Endpoints

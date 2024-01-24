@@ -49,9 +49,10 @@ func (r *Repository) GetTasks(context *fiber.Ctx) error {
 	return nil
 }
 
+// funky
 func (r *Repository) GetTaskByID(context *fiber.Ctx) error {
-	taskModel := &migrations.Tasks{}
 	id := context.Params("id")
+	taskModel := &migrations.Tasks{}
 	// usual error checking if id is empty
 	if id == "" {
 		context.Status(http.StatusBadRequest).JSON(&fiber.Map{"message": "ID cannot be empty"})
@@ -131,11 +132,11 @@ func (r *Repository) DeleteTask(context *fiber.Ctx) error {
 	id := context.Params("id")
 	// usual error checking if id is empty
 	if id == "" {
-		context.Status(http.StatusBadRequest).JSON(&fiber.Map{"message": "ID cannot be empty"})
+		context.Status(http.StatusInternalServerError).JSON(&fiber.Map{"message": "ID cannot be empty"})
 		return nil
 	}
 
-	err := r.DB.Delete(taskModel)
+	err := r.DB.Delete(taskModel, id)
 
 	if err.Error != nil {
 		context.Status(http.StatusBadRequest).JSON(&fiber.Map{"message": "Could not delete task"})
